@@ -13,6 +13,7 @@ jobs:
           SONAR_ORGANIZATION: mlaraibyousaf
           # Name of the main branch of the project
           SONAR_DEFAULT_BRANCH: main
+
           # Sonar token used to integrate with SonarCloud api.
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
                 
@@ -24,3 +25,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          sonar.projectKey : react-sonar
+          SONAR_ORGANIZATION: mlaraibyousaf
