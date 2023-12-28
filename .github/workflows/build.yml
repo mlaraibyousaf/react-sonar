@@ -6,6 +6,10 @@ jobs:
   sonarcloud:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          
       - name: create-sonar-project
         uses: nelsoncanarinho/setup-sonar-action@v1.0.0
         with:
@@ -17,9 +21,7 @@ jobs:
           # Sonar token used to integrate with SonarCloud api.
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
                 
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
